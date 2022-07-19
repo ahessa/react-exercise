@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# React exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this exercise you can demonstrate your knowledge about React and its concepts. You are allowed to
+use [React docs](https://reactjs.org/).
 
-## Available Scripts
+**Requirements**
 
-In the project directory, you can run:
+- Install [Nodejs](https://nodejs.org). In the custom setup, make sure npm package manager is also being installed.
 
-### `npm start`
+**Set up**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone this project to your development machine
+2. In the project's working directory
+    1. Install packages: Run `npm install`
+    2. Run the React app: Run `npm run start` (Browser will open automatically with url http://localhost:3000/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Tasks**
 
-### `npm test`
+The tasks should be performed in order. At least one commit per task should be done.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Render a form in `src/App.js`. The form should be a component named `UserForm`, and it should include following
+   elements:
+    - Text input: First name
+    - Text input: Last name
+    - Dropdown: Canton
+        - Options: Zürich, Bern
+    - Submit button
+2. Simulate a form submission by showing an alert box after clicking submit. In the alert box, the form data should be
+   shown in JSON format.
+3. Create a `Page` component and wrap it around the UserForm component.
+4. Show the filling form data as text in the Page component, right before the UserForm.
+5. Mark first name and last name as required form fields, with a star `*`. The star should be colored red with an SCSS
+   variable.
+6. Validate the required fields. If one of the required fields is empty, prevent the submission.
+7. Use [Carbon Design components](https://carbondesignsystem.com/components/overview/) for the form elements.
