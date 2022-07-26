@@ -1,56 +1,74 @@
-import './App.css';
-import React from 'react';
-
-class UserForm extends React.Component  {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstName: '',
-            lastName: '',  
-        };
-    
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      handleChange(event) {
+        import './App.css';
+        import React, { useState } from 'react';
         
-        this.setState({
-            firstName: event.target.props.firstName,
-            lastName: event.target.props.lastName
-        });
-      }
-    
-      handleSubmit(event) {
-        //alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
-      }
-    
-      render() {
-        return (
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              First Name:
-              <input type="text" value={this.props.firstName} onChange={this.handleChange} />
-            </label>
-            <br/>
-            <label>
-              Last Name:
-              <input type="text" value={this.props.lastName} onChange={this.handleChange} />
-            </label>
-            <br/>
-            <label>
-          Select your Canton:
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="zurich">Zurich</option>
-            <option value="basel">Basel</option>
-            </select>
-            </label>
-            <br/>
-        <input type="submit" value="Submit" />
-          </form>
-        );
-      }
-}
+        function UserForm() {
+          const cantons = [
+            { label: 'Basel', value: 'Basel' },
+            { label: 'Zurich', value: 'Zurich' },
+            { label: 'Geneve', value: 'Geneve'}
+          ];
+          const [values, setValues] = useState({
+            firstName: '',
+            lastName: '',
+            canton: 'Basel' 
+            
+          });
+        
+          const handleChange = e => {
+            setValues(oldValues => ({
+              ...oldValues,
+              [e.target.name]: e.target.value
+            }));
+          }
 
-export default UserForm;
+          function handleSubmit(event) {
+            event.preventDefault();
+            //alert('{"firstName": ' + values.firstName + '"lastName" : ' + values.lastName, JSON.stringify(values.canton));
+            alert(JSON.stringify(values.firstName) +'  '+ JSON.stringify(values.lastName) +'  '+ JSON.stringify(values.canton));
+          }
+        
+          return (
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="firstName">First Name: </label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  value={values.firstName}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="lastName">Last Name: </label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  value={values.lastName}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                  <label>
+                    Canton: 
+                  <select 
+                  id="canton"
+                  name="canton"
+                  value={values.canton}
+                  onChange={handleChange}
+                  >
+                  {cantons.map((canton) => (
+                      <option value={canton.value}>{canton.label}</option>
+                    ))}
+                  </select>
+                  </label>
+              </div>
+              
+
+              <button type="submit">Submit</button>
+            </form>
+          );
+        }
+        
+        
+        
+        export default UserForm;
