@@ -1,7 +1,7 @@
         import './App.css';
         import React, { useState } from 'react';
         
-        function UserForm() {
+        function UserForm(props) {
           const cantons = [
             { label: 'Basel', value: 'Basel' },
             { label: 'Zurich', value: 'Zurich' },
@@ -65,10 +65,12 @@
               
 
               <button type="submit">Submit</button>
-            </form>
+            </form>           
           );
         }
+
         
         
         
         export default UserForm;
+        
